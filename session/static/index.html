@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .logout {
+      margin-left: 30px;
+    }
+  </style>
+</head>
+<body>
+  <label>username: </label><input type="text" name="username">
+  <label>password: </label><input type='password'  name="password">
+  <button class="btn">登陆</button>
+  <a href="/profile">用户中心</a>
+  <a class="logout" href="/logout">退出</a>
+</body>
+<script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+<script>
+  $(function() {
+        
+        $('.btn').click(function() {
+            var username = $(':text').val();
+            var password = $(':password').val();
+            console.log(username, password)
+            $.post('/login',{
+                    username,
+                    password
+                },
+                function(data) {
+                    console.log(data)
+                }
+            )}
+        )
+ 
+    })
+</script>
+</html>
